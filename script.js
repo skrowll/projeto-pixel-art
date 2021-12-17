@@ -10,8 +10,7 @@ window.onload = function () {
 
     colorSelect.addEventListener('click', function (event) {
         let colorSelected = event.target.style.backgroundColor;
-        console.log(colorSelected);
-        console.log(event);
+        changeSelection(colorSelected);
     });
 }
 
@@ -32,7 +31,8 @@ function createColors(colors) {
         let color = document.createElement('div');
         color.style.backgroundColor = colors[index];
         if (color.style.backgroundColor === 'black') {
-            color.className = 'color selected';
+            color.className = 'color';
+            color.classList.add('selected');
         } else {
             color.className = 'color';
         };
@@ -57,3 +57,16 @@ function createPixels(size) {
         }
     }
 };
+
+function changeSelection (colorSelected) {
+    let selection = document.getElementsByClassName('color');
+    for (index = 0; index < selection.length ; index += 1) {
+        let color = selection[index].style.backgroundColor;
+        if (color === colorSelected) {
+            selection[index].classList.add('selected');
+        }
+        if (color !== colorSelected) {
+            selection[index].classList.remove('selected');
+        }         
+    }
+}
