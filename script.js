@@ -1,3 +1,20 @@
+window.onload = function () {
+
+    let colors = ['black', 'red', 'green', 'blue'];
+    createColors(colors);
+
+    let size = 5;
+    createPixels(size);
+
+    let colorSelect = document.querySelector('#color-palette');
+
+    colorSelect.addEventListener('click', function (event) {
+        let colorSelected = event.target.style.backgroundColor;
+        console.log(colorSelected);
+        console.log(event);
+    });
+}
+
 let header = document.createElement('header');
 document.body.appendChild(header);
 
@@ -13,13 +30,15 @@ document.body.appendChild(colorPalette);
 function createColors(colors) {
     for (index = 0; index < colors.length; index += 1) {
         let color = document.createElement('div');
-        color.className = 'color';
         color.style.backgroundColor = colors[index];
+        if (color.style.backgroundColor === 'black') {
+            color.className = 'color selected';
+        } else {
+            color.className = 'color';
+        };
         colorPalette.appendChild(color);
     }
-}
-let colors = ['black', 'red', 'green', 'blue'];
-createColors(colors);
+};
 
 let pixelBoard = document.createElement('section');
 pixelBoard.id = 'pixel-board';
@@ -37,6 +56,4 @@ function createPixels(size) {
             line.appendChild(pixel);
         }
     }
-}
-let size = 5;
-createPixels(size);
+};
