@@ -21,3 +21,22 @@ function createColors(colors) {
 let colors = ['black', 'red', 'green', 'blue'];
 createColors(colors);
 
+let pixelBoard = document.createElement('section');
+pixelBoard.id = 'pixel-board';
+document.body.appendChild(pixelBoard);
+
+function createPixels(size) {
+    for (index = 0; index < size; index += 1) {
+        let line = document.createElement('div');
+        line.className = 'line';
+        pixelBoard.appendChild(line);
+        for (index2 = 0; index2 < size; index2 += 1) {
+            let pixel = document.createElement('div');
+            pixel.className = 'pixel';
+            pixel.style.backgroundColor = 'white';
+            line.appendChild(pixel);
+        }
+    }
+}
+let size = 5;
+createPixels(size);
