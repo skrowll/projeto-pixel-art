@@ -12,6 +12,14 @@ window.onload = function () {
         let colorSelected = event.target.style.backgroundColor;
         changeSelection(colorSelected);
     });
+
+    let colorApply = document.querySelector('#pixel-board');
+
+    colorApply.addEventListener('click', function (event) {
+        let colorApply = event.target;
+        let colorSelected = document.getElementsByClassName('selected')[0].style.backgroundColor;
+        colorApply.style.backgroundColor = colorSelected;
+    });
 }
 
 let header = document.createElement('header');
