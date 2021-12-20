@@ -3,6 +3,8 @@ window.onload = function () {
     let colors = ['black', 'red', 'green', 'blue'];
     createColors(colors);
 
+    createClearButton('Limpar');
+
     let size = 5;
     createPixels(size);
 
@@ -20,6 +22,15 @@ window.onload = function () {
         let colorSelected = document.getElementsByClassName('selected')[0].style.backgroundColor;
         colorApply.style.backgroundColor = colorSelected;
     });
+
+    let clearBoard = document.querySelector('#clear-board');
+    let board = document.getElementsByClassName('pixel');
+
+    clearBoard.addEventListener('click', function() {
+        for (index = 0; index < board.length; index += 1) {
+            board[index].style.backgroundColor = 'white';
+        }
+    });    
 }
 
 let header = document.createElement('header');
@@ -47,6 +58,17 @@ function createColors(colors) {
         colorPalette.appendChild(color);
     }
 };
+
+let buttonSection = document.createElement('section');
+buttonSection.id = 'button-section';
+document.body.appendChild(buttonSection);
+
+function createClearButton(buttonName) {
+    let clearButton = document.createElement('button');
+    clearButton.innerHTML = buttonName;
+    clearButton.id = 'clear-board';
+    buttonSection.appendChild(clearButton);
+}
 
 let pixelBoard = document.createElement('section');
 pixelBoard.id = 'pixel-board';
