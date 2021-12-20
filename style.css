@@ -15,7 +15,7 @@ h1 {
 }
 
 #pixel-board {
-    width: 210px;
+    width: fit-content;
     margin-top: 20px;
     margin-right: auto;
     margin-left: auto;
@@ -30,6 +30,7 @@ h1 {
 
 .line {
     height: 42px;
+    width: fit-content;
 }
 
 
