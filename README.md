@@ -1,5 +1,5 @@
 # (Construção)
-# Boas vindas ao repositório do projeto Pixel Art! #
+<!-- # Boas vindas ao repositório do projeto Pixel Art! #
 ---
 
 ## O que foi desenvolvido
